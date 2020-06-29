@@ -1,24 +1,20 @@
 {
   "name": "super-shop",
   "version": "0.0.1",
+  "license": "MIT",
+  "author": "Andrew Bubnov <jackblack.nt@yandex.ru>",
   "description": "Shopping app",
-  "main": "index.js",
+  "homepage": "https://frontandrew.github.io/re-store",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/frontandrew/super-shop.git"
-  },
-  "keywords": [
-    "react",
-    "redux",
-    "javascript"
-  ],
-  "author": "Andrew Bubnov <jackblack.nt@yandex.ru>",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/frontandrew/super-shop/issues"
-  },
-  "homepage": "https://github.com/frontandrew/super-shop#readme"
+  "dependencies": {
+    "prop-types": "^15.7.2",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1",
+    "react-redux": "^7.2.0",
+    "react-router-dom": "^5.2.0",
+    "react-scripts": "^3.4.1",
+    "redux": "^4.0.5"
+  }
 }
