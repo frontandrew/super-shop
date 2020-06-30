@@ -1,0 +1,12 @@
+@import url(./__cart-title/header__cart-title.css);
+
+.header__cart {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border: 2px solid white;
+  padding: 8px;
+  background-color: royalblue;
+  color: white;
+  border-radius: 10px;
+ } 

@@ -7,7 +7,7 @@ import Header from '../header/header.js';
 const App = () => {
   return (
     <React.Fragment>
-      <Header />
+      <Header totalItems={13} totalCost={16500} />
     </React.Fragment>
   );
 }
