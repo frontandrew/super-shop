@@ -6,7 +6,9 @@
   "description": "Shopping app",
   "homepage": "https://frontandrew.github.io/re-store",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "webpack-dev-server --env.mode=development --devtool source-map --open --watch",
+    "build": "rimraf dist && webpack --env.mode=production",
+    "deploy": "gh-pages -d dist"
   },
   "dependencies": {
     "core-js": "^3.6.5",
