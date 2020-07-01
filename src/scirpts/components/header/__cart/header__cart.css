@@ -1,4 +1,5 @@
 @import url(./__cart-title/header__cart-title.css);
+@import url(./__cart-totals/header__cart-totals.css);
 
 .header__cart {
   display: flex;

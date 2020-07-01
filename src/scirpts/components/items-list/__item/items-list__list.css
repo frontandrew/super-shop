@@ -1,8 +1,7 @@
-.categories-list__item {
-  /* max-width: 350px; */
-  min-width: 250px;
+.items-list__item {
+  min-width: 220px;
   width: 100%;
-  height: 200px;
+  height: 180px;
 
   display: flex;
   justify-content: center;
@@ -12,10 +11,10 @@
   box-shadow: 0px 5px 8px 4px rgba(200, 200, 200, .6);
 
   background-color: honeydew;
-
+  
   transition: all 0.1s ease-out;
 }
 
-.categories-list__item:hover {
+.items-list__item:hover {
   transform: scale(1.01)
 }

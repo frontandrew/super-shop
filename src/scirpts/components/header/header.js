@@ -1,28 +1,35 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { connect } from 'react-redux';
 
 import './header.css';
-
+import { toMainPage } from '../../actions/actions.js';
 import Navigation from '../navigation/navigation.js';
 
-const Header = ({ totalItems, totalCost }) => {
+const Header = ({ totalItems, totalCost, toMainPage }) => {
   return (
     <header className="header">
       <div className="header__nav">
-        <Link to="/" className="link">
-          <h1 className="header__logo">Super Shop</h1>
-        </Link>
+        <h1
+          className="header__logo"
+          onClick={() => toMainPage()}>
+          Super Shop
+        </h1>
         <Navigation />
       </div>
-      <Link to="/cart" className="link">
-        <div className="header__cart">
-          <span className="header__cart-title">Корзина</span>
-          <span className="header__totals">Всего: {totalItems} шт.</span>
-          <span className="header__totals">На сумму: {totalCost} $</span>
-        </div>
-      </Link>
+      <button className="header__cart">
+        <span className="header__cart-title">Корзина</span>
+        <span className="header__cart-totals">Всего: {totalItems} шт.</span>
+        <span className="header__cart-totals">На сумму: {totalCost} $</span>
+      </button>
     </header>
   )
 }
 
-export default Header;
+const mapStateToProps = ({ totalItems, totalCost }) => {
+  return {
+    totalCost,
+    totalItems
+  }
+}
+
+export default connect(mapStateToProps, { toMainPage })(Header);

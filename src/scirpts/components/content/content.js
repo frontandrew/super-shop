@@ -1,17 +1,26 @@
-import React, { Component } from 'react';
+import React from 'react';
+import { connect } from 'react-redux';
 
 import CategoriesList from '../categories-list/categories-list.js';
+import ItemsList from '../items-list/items-list.js';
 
-export default class Content extends Component {
-
-  componentDidMount() {
-    
-  }
-
-  render() {
+const Content = ({ view }) => {
+  if (view === 'categories') {
     return (
-    <CategoriesList />
+      <CategoriesList />
+    )
+  } else if (view === 'items') {
+    return (
+      <ItemsList />
     )
   }
-
 }
+
+const mapStateToProps = (state) => {
+  return {
+    view: state.view
+  }
+}
+
+export default connect(mapStateToProps)(Content);
+

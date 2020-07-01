@@ -1,18 +1,22 @@
 import React from 'react';
+import { connect } from 'react-redux';
 
 import './categories-list.css';
 
 import categories from '../../services/categories.json';
+import { categorySelect } from '../../actions/actions.js';
 
-const CategoriesList = () => {
+const CategoriesList = ({ categorySelect }) => {
 
   const items = categories.map(item => {
     const { id, title } = item;
 
     return (
-      <li className="categories-list__item"
+      <li
+        className="categories-list__item"
+        onClick={() => categorySelect(id)}
         key={id}>
-          <h3>{title}</h3>          
+        <h3>{title}</h3>
       </li>
     )
   });
@@ -24,4 +28,10 @@ const CategoriesList = () => {
   )
 }
 
-export default CategoriesList;
+const mapDispatchToProps = (dispatch) => {
+  return {
+    categorySelect: (categoryId) => dispatch(categorySelect(categoryId)),
+  }
+}
+
+export default connect(undefined, mapDispatchToProps)(CategoriesList);

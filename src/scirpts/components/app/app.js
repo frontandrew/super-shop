@@ -8,7 +8,7 @@ import Content from '../content/content.js';
 const App = () => {
   return (
     <React.Fragment>
-      <Header totalItems={13} totalCost={16500} />
+      <Header />
       <Content />
     </React.Fragment>
   );

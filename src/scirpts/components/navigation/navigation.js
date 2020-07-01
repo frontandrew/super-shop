@@ -1,15 +1,26 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { connect } from 'react-redux';
 
 import './navigation.css'
 
-const Navigation = () => {
-  return(
+const Navigation = ({ activeCategory, activeItem }) => {
+
+  const category = activeCategory ? `/ категория ${activeCategory}` : undefined;
+  const item = activeItem ? `/ товар ${activeItem}` : undefined;
+
+  return (
     <ul className="navigation">
-      <li className="navigation__item">/ main_page </li>
-      <li className="navigation__item">/ category </li>
+      <li className="navigation__item">{category}</li>
+      <li className="navigation__item">{item}</li>
     </ul>
   )
 }
 
-export default Navigation;
+const mapStateToProps = ({ activeCategory, activeItem }) => {
+  return {
+    activeCategory,
+    activeItem
+  }
+}
+
+export default connect(mapStateToProps)(Navigation);
