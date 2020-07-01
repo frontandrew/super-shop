@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 
 import './app.css'
 
@@ -7,10 +7,10 @@ import Content from '../content/content.js';
 
 const App = () => {
   return (
-    <React.Fragment>
+    <Fragment>
       <Header />
       <Content />
-    </React.Fragment>
+    </Fragment>
   );
 }
 

@@ -1,0 +1,18 @@
+@import url(./__about/product__about.css);
+@import url(./__controls/product__controls.css);
+@import url(./__image/product__image.css);
+@import url(./__title/product__title.css);
+@import url(./__quantity/product__quantity.css);
+@import url(./__tocart/product__tocart.css);
+
+.product {
+  display: grid;
+
+  grid-template-columns: auto 30vw;
+  grid-template-rows: auto 60px auto;
+
+  background: honeydew;
+
+  border: 1px solid hotpink;
+  padding: 15px calc(3vw + 10px);
+}

@@ -1,0 +1,7 @@
+.product__quantity {
+  min-width: 100px;
+  max-width: 150px;
+  width: 100%;
+  
+  font-size: 22px;
+}
