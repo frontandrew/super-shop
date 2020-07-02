@@ -1,0 +1,12 @@
+.cart__controls {
+  width: 100%;
+
+  position: absolute;
+  bottom: 0;
+  
+  display: flex;
+  align-items: center;
+  padding: 8px 0;
+
+  border-top: 2px solid lightgray;
+}

@@ -2,6 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 
 import './categories-list.css';
+import { scrollTop } from '../../utils/scroll-top.js';
 
 import categories from '../../services/categories.json';
 import { categorySelected } from '../../actions/actions.js';
@@ -14,7 +15,10 @@ const CategoriesList = ({ categorySelected }) => {
     return (
       <li
         className="categories-list__item"
-        onClick={() => categorySelected(item)}
+        onClick={() => {
+          categorySelected(item);
+          scrollTop();
+        }}
         key={id}>
         <h3>{title}</h3>
       </li>

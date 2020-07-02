@@ -2,11 +2,11 @@ import React from 'react';
 import { connect } from 'react-redux';
 
 import './header.css';
-import { toMainPage } from '../../actions/actions.js';
+import { toMainPage, cartToggle } from '../../actions/actions.js';
 import Navigation from '../navigation/navigation.js';
 import Cart from '../cart/cart.js';
 
-const Header = ({ totalItems, totalCost, toMainPage }) => {
+const Header = ({ totalItems, totalCost, toMainPage, cartToggle }) => {
   return (
     <header className="header">
       <div className="header__nav">
@@ -18,7 +18,9 @@ const Header = ({ totalItems, totalCost, toMainPage }) => {
         <Navigation />
       </div>
       <div className="header__cart">
-        <button className="header__cart-button">
+        <button
+          className="header__cart-button"
+          onClick={() => { cartToggle() }}>
           <span className="header__cart-title">Корзина</span>
           <span className="header__cart-totals">Всего: {totalItems} шт.</span>
           <span className="header__cart-totals">На сумму: {totalCost} $</span>
@@ -36,4 +38,4 @@ const mapStateToProps = ({ totalItems, totalCost }) => {
   }
 }
 
-export default connect(mapStateToProps, { toMainPage })(Header);
+export default connect(mapStateToProps, { toMainPage, cartToggle })(Header);

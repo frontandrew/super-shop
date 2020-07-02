@@ -1,4 +1,18 @@
+@import url(./__controls/cart__controls.css);
+@import url(./__info/cart__info.css);
+@import url(./__payment/cart__payment.css);
+@import url(./__tabel/cart__tabel.css);
+@import url(./__totals/cart__totals.css);
+
 .cart {
-  width: 200px;
+  width: 300px;
   height: 380px;
+  
+  position: absolute;
+  z-index: 10;
+  right: 0;
+
+  background-color: white;
+  border-radius: 8px;
+  border: 2px solid lightgray;
 }

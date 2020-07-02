@@ -1,5 +1,5 @@
 import React from 'react';
-import {connect}from 'react-redux';
+import { connect } from 'react-redux';
 
 import './cart.css';
 
@@ -14,8 +14,10 @@ const Cart = ({ cartVisible, totalCost, totalItems }) => {
 
         </ul>
         <div className="cart__controls">
-          <span className="cart__totals">{totalItems}&nbsp;шт.</span>
-          <span className="cart__totals">{totalCost}&nbsp;$</span>
+          <div className="cart__info">
+            <span className="cart__totals">{totalItems}&nbsp;шт.</span>
+            <span className="cart__totals">{totalCost}&nbsp;$</span>
+          </div>
           <button className="cart__payment">Оплатить</button>
         </div>
       </div>

@@ -1,5 +1,5 @@
 const InitialState = {
-  cartVisible: true,
+  cartVisible: false,
   inCartProducts: [],
   totalCost: 18900,
   totalItems: 16,
@@ -18,14 +18,22 @@ const reduser = (state = InitialState, action) => {
       return state = {
         ...state,
         view: 'categories',
+        cartVisible: false,
         activeCategory: undefined,
         activeProduct: undefined,
+      }
+
+    case 'CART_TOGGLE':
+      return state = {
+        ...state,
+        cartVisible: !state.cartVisible,
       }
 
     case 'CATEGORY_SELECTED':
       return state = {
         ...state,
         view: 'items',
+        cartVisible: false,
         activeCategory: action.categoryItem,
         activeProduct: undefined,
       }
@@ -34,6 +42,7 @@ const reduser = (state = InitialState, action) => {
       return state = {
         ...state,
         view: 'product',
+        cartVisible: false,
         activeProduct: action.productItem,
       }
 

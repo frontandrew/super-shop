@@ -4,6 +4,12 @@ const toMainPage = () => {
   }
 }
 
+const cartToggle = () => {
+  return {
+    type: 'CART_TOGGLE'
+  }
+}
+
 const categorySelected = (categoryItem) => {
   return {
     type: 'CATEGORY_SELECTED',
@@ -20,6 +26,7 @@ const productSelected = (productItem) => {
 
 export {
   toMainPage,
+  cartToggle,
   categorySelected,
   productSelected,
 }
