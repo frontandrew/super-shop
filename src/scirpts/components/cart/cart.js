@@ -3,6 +3,8 @@ import { connect } from 'react-redux';
 
 import './cart.css';
 
+import CartItem from '../cart-item/cart-item.js';
+
 const Cart = ({ cartVisible, totalCost, totalItems }) => {
 
   if (!cartVisible) {
@@ -11,7 +13,7 @@ const Cart = ({ cartVisible, totalCost, totalItems }) => {
     return (
       <div className="cart">
         <ul className="cart__tabel">
-
+          <CartItem />
         </ul>
         <div className="cart__controls">
           <div className="cart__info">
