@@ -14,7 +14,7 @@ const Content = ({ view }) => {
     return (
       <ItemsList />
     )
-  } else if (view === 'item') {
+  } else if (view === 'product') {
     return (
       <Product />
     )

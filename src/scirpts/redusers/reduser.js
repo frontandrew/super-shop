@@ -3,11 +3,12 @@ const InitialState = {
   totalItems: 16,
   view: 'categories',
   activeCategory: undefined,
-  activeItem: undefined,
+  activeProduct: undefined,
 }
 
 const reduser = (state = InitialState, action) => {
-  console.log(action.type);
+
+  console.log(action);
 
   switch (action.type) {
 
@@ -16,14 +17,21 @@ const reduser = (state = InitialState, action) => {
         ...state,
         view: 'categories',
         activeCategory: undefined,
-        activeItem: undefined,
+        activeProduct: undefined,
       }
 
-    case 'CATEGORY_SELECT':
+    case 'CATEGORY_SELECTED':
       return state = {
         ...state,
         view: 'items',
-        activeCategory: action.categoryId,
+        activeCategory: action.categoryItem,
+      }
+
+    case 'PRDOUCT_SELECTED':
+      return state = {
+        ...state,
+        view: 'product',
+        activeProduct: action.productItem,
       }
 
     default:

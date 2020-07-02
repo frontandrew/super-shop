@@ -4,14 +4,22 @@ const toMainPage = () => {
   }
 }
 
-const categorySelect = (categoryId) => {
+const categorySelected = (categoryItem) => {
   return {
-    type: 'CATEGORY_SELECT',
-    categoryId: categoryId
+    type: 'CATEGORY_SELECTED',
+    categoryItem
   }  
-}  
+}
+
+const productSelected = (productItem) => {
+  return {
+    type: 'PRDOUCT_SELECTED',
+    productItem
+  }
+}
 
 export {
   toMainPage,
-  categorySelect,
+  categorySelected,
+  productSelected,
 }

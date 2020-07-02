@@ -3,23 +3,23 @@ import { connect } from 'react-redux';
 
 import './navigation.css'
 
-const Navigation = ({ activeCategory, activeItem }) => {
+const Navigation = ({ activeCategory, activeProduct }) => {
 
-  const category = activeCategory ? `/ категория ${activeCategory}` : undefined;
-  const item = activeItem ? `/ товар ${activeItem}` : undefined;
+  const category = activeCategory ? `/ ${activeCategory.title}` : undefined;
+  const product = activeProduct ? `/ ${activeProduct.title}` : undefined;
 
   return (
     <ul className="navigation">
       <li className="navigation__item">{category}</li>
-      <li className="navigation__item">{item}</li>
+      <li className="navigation__item">{product}</li>
     </ul>
   )
 }
 
-const mapStateToProps = ({ activeCategory, activeItem }) => {
+const mapStateToProps = ({ activeCategory, activeProduct }) => {
   return {
     activeCategory,
-    activeItem
+    activeProduct
   }
 }
 

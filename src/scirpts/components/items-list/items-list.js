@@ -1,27 +1,45 @@
 import React from 'react';
+import { connect } from 'react-redux';
 
 import './items-list.css';
 
 import items from '../../services/items.json';
+import { productSelected } from '../../actions/actions.js';
 
-const ItemsList = ({categoryId}) => {
+const ItemsList = ({ activeCategory, productSelected }) => {
 
   const itemsList = items.map(item => {
-    const { id, title } = item;
+    if (item.category_id === activeCategory.id) {
 
-    return (
-      <li className="items-list__item"
-        key={id}>
-          <h3>{title}</h3>          
-      </li>
-    )
+      const { id, title } = item;
+
+      return (
+        <li key={id}
+          className="items-list__item"
+          onClick={() => { productSelected(item) }} >
+          <h3>{title}</h3>
+        </li>
+      );
+    }
   });
 
   return (
     <ul className="items-list">
       {itemsList}
     </ul>
-  )
+  );
 }
 
-export default ItemsList;
+const mapStateToProps = ({ activeCategory }) => {
+  return {
+    activeCategory
+  }
+}
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+    productSelected: (productItem) => dispatch(productSelected(productItem))
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(ItemsList);

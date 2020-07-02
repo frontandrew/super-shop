@@ -4,9 +4,9 @@ import { connect } from 'react-redux';
 import './categories-list.css';
 
 import categories from '../../services/categories.json';
-import { categorySelect } from '../../actions/actions.js';
+import { categorySelected } from '../../actions/actions.js';
 
-const CategoriesList = ({ categorySelect }) => {
+const CategoriesList = ({ categorySelected }) => {
 
   const items = categories.map(item => {
     const { id, title } = item;
@@ -14,7 +14,7 @@ const CategoriesList = ({ categorySelect }) => {
     return (
       <li
         className="categories-list__item"
-        onClick={() => categorySelect(id)}
+        onClick={() => categorySelected(item)}
         key={id}>
         <h3>{title}</h3>
       </li>
@@ -30,7 +30,7 @@ const CategoriesList = ({ categorySelect }) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    categorySelect: (categoryId) => dispatch(categorySelect(categoryId)),
+    categorySelected: (categoryItem) => dispatch(categorySelected(categoryItem)),
   }
 }
 
