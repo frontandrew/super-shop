@@ -25,6 +25,7 @@ const reduser = (state = InitialState, action) => {
         ...state,
         view: 'items',
         activeCategory: action.categoryItem,
+        activeProduct: undefined,
       }
 
     case 'PRDOUCT_SELECTED':

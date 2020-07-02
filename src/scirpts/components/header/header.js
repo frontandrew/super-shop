@@ -10,7 +10,7 @@ const Header = ({ totalItems, totalCost, toMainPage }) => {
     <header className="header">
       <div className="header__nav">
         <h1
-          className="header__logo"
+          className="header__logo link"
           onClick={() => toMainPage()}>
           Super Shop
         </h1>
