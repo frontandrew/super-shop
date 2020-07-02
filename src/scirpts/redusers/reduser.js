@@ -1,4 +1,6 @@
 const InitialState = {
+  cartVisible: true,
+  inCartProducts: [],
   totalCost: 18900,
   totalItems: 16,
   view: 'categories',

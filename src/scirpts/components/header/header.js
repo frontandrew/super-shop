@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import './header.css';
 import { toMainPage } from '../../actions/actions.js';
 import Navigation from '../navigation/navigation.js';
+import Cart from '../cart/cart.js';
 
 const Header = ({ totalItems, totalCost, toMainPage }) => {
   return (
@@ -16,11 +17,14 @@ const Header = ({ totalItems, totalCost, toMainPage }) => {
         </h1>
         <Navigation />
       </div>
-      <button className="header__cart">
-        <span className="header__cart-title">Корзина</span>
-        <span className="header__cart-totals">Всего: {totalItems} шт.</span>
-        <span className="header__cart-totals">На сумму: {totalCost} $</span>
-      </button>
+      <div className="header__cart">
+        <button className="header__cart-button">
+          <span className="header__cart-title">Корзина</span>
+          <span className="header__cart-totals">Всего: {totalItems} шт.</span>
+          <span className="header__cart-totals">На сумму: {totalCost} $</span>
+        </button>
+        <Cart />
+      </div>
     </header>
   )
 }
