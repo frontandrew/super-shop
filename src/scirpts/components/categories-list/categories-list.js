@@ -5,6 +5,7 @@ import './categories-list.css';
 
 import { scrollTop } from '../../utils/scroll-top.js';
 import { categorySelected } from '../../actions/actions.js';
+import withCategories from '../../hoc/with-categories.js';
 
 const CategoriesList = ({ categorySelected, categories }) => {
 
@@ -31,4 +32,4 @@ const CategoriesList = ({ categorySelected, categories }) => {
   )
 }
 
-export default connect(undefined, { categorySelected })(CategoriesList);
+export default connect(undefined, { categorySelected })(withCategories()(CategoriesList));

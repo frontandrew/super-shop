@@ -13,11 +13,7 @@ const Content = ({ view }) => {
   const content = () => {
     if (view === 'categories') {
       return (
-        <CategoriesConsumer>
-          {categories => (
-            <CategoriesList categories={categories}/>
-          )}          
-        </CategoriesConsumer>
+        <CategoriesList />
       )
     } else if (view === 'items') {
       return (
@@ -45,3 +41,6 @@ const mapStateToProps = (state) => {
 
 export default connect(mapStateToProps)(Content);
 
+/* <CategoriesConsumer>
+          {categories => <CategoriesList categories={categories} />}
+        </CategoriesConsumer> */
