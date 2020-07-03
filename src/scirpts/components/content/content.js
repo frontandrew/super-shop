@@ -6,13 +6,18 @@ import './content.css';
 import CategoriesList from '../categories-list/categories-list.js';
 import ItemsList from '../items-list/items-list.js';
 import Product from '../product/product.js';
+import { CategoriesConsumer } from '../../context/context';
 
 const Content = ({ view }) => {
 
   const content = () => {
     if (view === 'categories') {
       return (
-        <CategoriesList />
+        <CategoriesConsumer>
+          {categories => (
+            <CategoriesList categories={categories}/>
+          )}          
+        </CategoriesConsumer>
       )
     } else if (view === 'items') {
       return (

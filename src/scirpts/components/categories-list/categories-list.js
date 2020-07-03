@@ -2,12 +2,11 @@ import React from 'react';
 import { connect } from 'react-redux';
 
 import './categories-list.css';
-import { scrollTop } from '../../utils/scroll-top.js';
 
-import categories from '../../services/categories.json';
+import { scrollTop } from '../../utils/scroll-top.js';
 import { categorySelected } from '../../actions/actions.js';
 
-const CategoriesList = ({ categorySelected }) => {
+const CategoriesList = ({ categorySelected, categories }) => {
 
   const items = categories.map(item => {
     const { id, title } = item;
@@ -32,10 +31,4 @@ const CategoriesList = ({ categorySelected }) => {
   )
 }
 
-const mapDispatchToProps = (dispatch) => {
-  return {
-    categorySelected: (categoryItem) => dispatch(categorySelected(categoryItem)),
-  }
-}
-
-export default connect(undefined, mapDispatchToProps)(CategoriesList);
+export default connect(undefined, { categorySelected })(CategoriesList);

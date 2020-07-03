@@ -40,10 +40,4 @@ const mapStateToProps = ({ activeCategory }) => {
   }
 }
 
-const mapDispatchToProps = (dispatch) => {
-  return {
-    productSelected: (productItem) => dispatch(productSelected(productItem))
-  }
-}
-
-export default connect(mapStateToProps, mapDispatchToProps)(ItemsList);
+export default connect(mapStateToProps, { productSelected })(ItemsList);
