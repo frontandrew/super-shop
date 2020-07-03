@@ -3,13 +3,12 @@ import { connect } from 'react-redux';
 
 import './items-list.css';
 import { scrollTop } from '../../utils/scroll-top.js';
-
-import items from '../../services/items.json';
+import withProducts from '../../hoc/with-products.js';
 import { productSelected } from '../../actions/actions.js';
 
-const ItemsList = ({ activeCategory, productSelected }) => {
+const ItemsList = ({ activeCategory, productSelected, products }) => {
 
-  const itemsList = items.map(item => {
+  const itemsList = products.map(item => {
     if (item.category_id === activeCategory.id) {
 
       const { id, title } = item;
@@ -40,4 +39,4 @@ const mapStateToProps = ({ activeCategory }) => {
   }
 }
 
-export default connect(mapStateToProps, { productSelected })(ItemsList);
+export default connect(mapStateToProps, { productSelected })(withProducts()(ItemsList));

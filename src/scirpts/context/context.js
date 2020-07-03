@@ -5,7 +5,14 @@ const {
   Consumer: CategoriesConsumer
 } = React.createContext();
 
+const {
+  Provider: ProductsProvider,
+  Consumer: ProductsConsumer
+} = React.createContext();
+
 export {
   CategoriesProvider,
-  CategoriesConsumer
+  CategoriesConsumer,
+  ProductsProvider,
+  ProductsConsumer,
 }

@@ -40,7 +40,3 @@ const mapStateToProps = (state) => {
 }
 
 export default connect(mapStateToProps)(Content);
-
-/* <CategoriesConsumer>
-          {categories => <CategoriesList categories={categories} />}
-        </CategoriesConsumer> */
