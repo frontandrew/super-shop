@@ -24,9 +24,18 @@ const productSelected = (productItem) => {
   }
 }
 
+const productAddedToCart = (productItem, addedQuantity) => {
+  return {
+    type: 'PRODUCT_ADDED_TO_CART',
+    productItem,
+    addedQuantity
+  }
+}
+
 export {
   toMainPage,
   cartToggle,
   categorySelected,
   productSelected,
+  productAddedToCart,
 }
