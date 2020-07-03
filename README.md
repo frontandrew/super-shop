@@ -8,7 +8,7 @@ Hi and wellcome!
 
 <div align="center">
 
-[![super-shop screenshot](https:// "github.io/super-shop")](https://frontandrew.github.io/super-shop/)
+[![super-shop screenshot](https://avatars.mds.yandex.net/get-pdb/2754760/d505e9f3-ff47-4a19-842e-d89ab52dfae9/s1200 "github.io/super-shop")](https://frontandrew.github.io/super-shop/)
   
 </div>
 
