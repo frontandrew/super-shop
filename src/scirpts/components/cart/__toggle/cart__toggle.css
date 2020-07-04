@@ -1,0 +1,10 @@
+.cart__toggle {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border: 2px solid white;
+  padding: 8px;
+  background-color: royalblue;
+  color: white;
+  border-radius: 10px;
+}

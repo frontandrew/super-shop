@@ -3,36 +3,30 @@ import { connect } from 'react-redux';
 
 import './cart.css';
 
-import CartItem from '../cart-item/cart-item.js';
+import{cartToggle}from '../../actions/actions.js';
+import CartTabel from '../cart-tabel/cart-tabel.js';
 
-const Cart = ({ cartVisible, totalCost, totalItems }) => {
+const Cart = ({ totalCost, totalItems, cartToggle }) => {
 
-  if (!cartVisible) {
-    return <div />
-  } else {
-    return (
-      <div className="cart">
-        <ul className="cart__tabel">
-          <CartItem />
-        </ul>
-        <div className="cart__controls">
-          <div className="cart__info">
-            <span className="cart__totals">{totalItems}&nbsp;шт.</span>
-            <span className="cart__totals">{totalCost}&nbsp;$</span>
-          </div>
-          <button className="cart__payment">Оплатить</button>
-        </div>
-      </div>
-    )
-  }
+  return (
+    <div className="cart">
+      <button type="button"
+        className="cart__toggle"
+        onClick={() => cartToggle()} >
+        <span className="cart__title">Корзина</span>
+        <span className="cart__totals">Всего: {totalItems} шт.</span>
+        <span className="cart__totals">На сумму: {totalCost} $</span>
+      </button>
+      <CartTabel />
+    </div>
+  )
 }
 
 const mapStateToProps = ({ totalItems, totalCost, cartVisible }) => {
   return {
     totalCost,
     totalItems,
-    cartVisible,
   }
 }
 
-export default connect(mapStateToProps)(Cart);
+export default connect(mapStateToProps, { cartToggle })(Cart);

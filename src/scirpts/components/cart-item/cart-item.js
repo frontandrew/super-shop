@@ -11,7 +11,7 @@ const CartItem = () => {
         type="number"
         min={1}
         max={4}
-        defaultValue={2} />
+        value={2} />
       <button className="cart-item__delete">X</button>
     </li>
   )

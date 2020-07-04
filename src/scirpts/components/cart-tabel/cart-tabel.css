@@ -1,0 +1,17 @@
+@import url(./__controls/cart-tabel__controls.css);
+@import url(./__info/cart-tabel__info.css);
+@import url(./__list/cart-tabel__list.css);
+@import url(./__payment/cart-tabel__payment.css);
+
+.cart-tabel {
+  width: 300px;
+  height: 380px;
+  
+  position: absolute;
+  z-index: 10;
+  right: 0;
+
+  background-color: white;
+  border-radius: 8px;
+  border: 2px solid lightgray;
+}
