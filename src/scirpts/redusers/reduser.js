@@ -8,25 +8,25 @@ const InitialState = {
   activeProduct: undefined,
 }
 
-const updateItem = (cartItem = {}, product, quantity, idx) => {
-  const { 
+const updateItem = (cartItem = {}, product, diff) => {
+  const {
     id = product.id,
     title = product.title,
     price = product.price,
+    quantity = product.quantity,
     rest = product.quantity,
     total = 0,
     inCart = 0,
   } = cartItem;
 
-  quantity = quantity * idx;
-
   return {
     id,
     title,
     price,
-    rest: rest - quantity,
-    total: +(total + (price * quantity)).toFixed(2),
-    inCart: inCart + +quantity,
+    quantity,
+    rest: rest - diff,
+    total: +(total + (price * diff)).toFixed(2),
+    inCart: inCart + +diff,
   }
 }
 
@@ -52,14 +52,14 @@ const updateOrderItems = (items, item, id) => {
   ]
 }
 
-const updateOrder = (state, action, idx) => {
+const updateOrder = (state, action) => {
   const { order } = state;
-  const { productItem, quantity} = action;
-  
+  const { productItem, diff } = action;
+
   const inCartIdx = order.findIndex(prod => prod.id === productItem.id);
   const inCartProduct = order[inCartIdx];
 
-  const newCartItem = updateItem(inCartProduct, productItem, quantity, idx);
+  const newCartItem = updateItem(inCartProduct, productItem, diff);
 
   return state = {
     ...state,
@@ -106,7 +106,10 @@ const reduser = (state = InitialState, action) => {
       }
 
     case 'PRODUCT_ADDED_TO_CART':
-      return updateOrder(state, action, 1);
+      return updateOrder(state, action);
+
+    case 'PRODUCT_REMOVED_FROM_CART':
+      return updateOrder(state, action);
 
     default:
       return state

@@ -24,11 +24,19 @@ const productSelected = (productItem) => {
   }
 }
 
-const productAddedToCart = (productItem, quantity) => {
+const productAddedToCart = (productItem, diff) => {
   return {
     type: 'PRODUCT_ADDED_TO_CART',
     productItem,
-    quantity
+    diff
+  }
+}
+
+const productRemovedFromCart = (productItem, diff) => {
+  return {
+    type: 'PRODUCT_REMOVED_FROM_CART',
+    productItem,
+    diff
   }
 }
 
@@ -38,4 +46,5 @@ export {
   categorySelected,
   productSelected,
   productAddedToCart,
+  productRemovedFromCart,
 }

@@ -3,17 +3,30 @@ import { connect } from 'react-redux';
 
 import './cart-tabel.css';
 
-import { cartToggle } from '../../actions/actions.js';
+import { productAddedToCart, productRemovedFromCart } from '../../actions/actions.js';
 import CartItem from '../cart-item/cart-item.js';
 
-const CartTabel = ({ totalCost, totalItems, order, cartVisible, cartToggle }) => {
+const CartTabel = ({
+  totalCost,
+  totalItems,
+  order,
+  cartVisible,
+  productAddedToCart,
+  productRemovedFromCart,
+}) => {
 
   if (!cartVisible) {
     return null
   } else {
     const listItems = order.map(item => {
       return (
-        <CartItem item={item} />
+        <li key={item.id}
+          className="cart-item">
+          <CartItem
+            item={item}
+            onAdd={productAddedToCart}
+            onRemove={productRemovedFromCart} />
+        </li>
       )
     })
     return (
@@ -37,4 +50,7 @@ const mapStateToProps = ({ totalCost, totalItems, order, cartVisible }) => {
   return { totalCost, totalItems, order, cartVisible }
 }
 
-export default connect(mapStateToProps, { cartToggle })(CartTabel);
+export default connect(
+  mapStateToProps,
+  { productAddedToCart, productRemovedFromCart }
+)(CartTabel);
