@@ -1,8 +1,8 @@
 const InitialState = {
   cartVisible: false,
   order: [],
-  totalCost: 18900,
-  totalItems: 16,
+  totalCost: 0,
+  totalItems: 0,
   view: 'categories',
   activeCategory: undefined,
   activeProduct: undefined,
@@ -52,6 +52,17 @@ const updateOrderItems = (items, item, id) => {
   ]
 }
 
+const updateTotals = (order) => {
+  let newTotalCost = 0, newTotalItems = 0;
+
+  order.forEach(item => {
+    newTotalCost = newTotalCost + item.total;
+    newTotalItems = newTotalItems + item.inCart;
+  })
+
+  return { newTotalCost, newTotalItems }
+}
+
 const updateOrder = (state, action) => {
   const { order } = state;
   const { productItem, diff } = action;
@@ -60,10 +71,14 @@ const updateOrder = (state, action) => {
   const inCartProduct = order[inCartIdx];
 
   const newCartItem = updateItem(inCartProduct, productItem, diff);
+  const newOrder = updateOrderItems(order, newCartItem, inCartIdx);
+  const { newTotalCost, newTotalItems } = updateTotals(newOrder);
 
   return state = {
     ...state,
-    order: updateOrderItems(order, newCartItem, inCartIdx),
+    order: newOrder,
+    totalCost: newTotalCost,
+    totalItems: newTotalItems,
   };
 }
 
