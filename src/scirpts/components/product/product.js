@@ -36,24 +36,22 @@ class Product extends Component {
 
   componentDidMount() {
     console.log(this.props);
-    this.updateProduct();
+    this.updateState();
   }
 
   componentDidUpdate(prevProps) {
     if (this.props.order !== prevProps.order) {
-      this.updateProduct()
+      this.updateState()
     }
-    this.render();
   }
 
-  updateProduct() {
+  updateState() {
     const { order, activeProduct } = this.props;
-    const idx = order.findIndex(item => item.id === activeProduct.id)
+    const item = order.find(item => item.id === activeProduct.id)
 
-    if (idx < 0) {
+    if (!item) {
       this.setState(state => {
         return state = {
-          id: activeProduct.id,
           title: activeProduct.title,
           price: activeProduct.price,
           rest: activeProduct.quantity,
@@ -62,12 +60,12 @@ class Product extends Component {
         }
       })
     } else {
-      const inputValue = order[idx].rest ? 0 : 1;
-      const minValue = order[idx].rest ? 0 : 1;
+      const inputValue = item.rest ? 1 : 0;
+      const minValue = item.rest ? 1 : 0;
 
       this.setState(state => {
         return state = {
-          ...order[idx],
+          ...item,
           inputValue,
           minValue,
         }
