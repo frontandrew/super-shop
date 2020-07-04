@@ -8,14 +8,18 @@ import CartItem from '../cart-item/cart-item.js';
 
 const CartTabel = ({ totalCost, totalItems, order, cartVisible, cartToggle }) => {
 
-  // это компонент cart-table
   if (!cartVisible) {
     return null
   } else {
+    const listItems = order.map(item => {
+      return (
+        <CartItem item={item} />
+      )
+    })
     return (
       <div className="cart-tabel">
         <ul className="cart-tabel__list">
-          <CartItem />
+          {listItems}
         </ul>
         <div className="cart-tabel__controls">
           <div className="cart-tabel__info">
