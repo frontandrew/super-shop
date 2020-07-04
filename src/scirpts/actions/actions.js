@@ -40,6 +40,14 @@ const productRemovedFromCart = (productItem, diff) => {
   }
 }
 
+const productDeletedFromCart = (productItem, diff) => {
+  return {
+    type: 'PRODUCT_DELETED_FROM_CART',
+    productItem,
+    diff
+  }
+}
+
 export {
   toMainPage,
   cartToggle,
@@ -47,4 +55,5 @@ export {
   productSelected,
   productAddedToCart,
   productRemovedFromCart,
+  productDeletedFromCart,
 }

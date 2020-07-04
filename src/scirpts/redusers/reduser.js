@@ -111,6 +111,9 @@ const reduser = (state = InitialState, action) => {
     case 'PRODUCT_REMOVED_FROM_CART':
       return updateOrder(state, action);
 
+    case 'PRODUCT_DELETED_FROM_CART':
+      return updateOrder(state, action);
+
     default:
       return state
   }

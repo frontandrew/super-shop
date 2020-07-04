@@ -3,7 +3,11 @@ import { connect } from 'react-redux';
 
 import './cart-tabel.css';
 
-import { productAddedToCart, productRemovedFromCart } from '../../actions/actions.js';
+import {
+  productAddedToCart,
+  productRemovedFromCart,
+  productDeletedFromCart,
+} from '../../actions/actions.js';
 import CartItem from '../cart-item/cart-item.js';
 
 const CartTabel = ({
@@ -13,6 +17,7 @@ const CartTabel = ({
   cartVisible,
   productAddedToCart,
   productRemovedFromCart,
+  productDeletedFromCart,
 }) => {
 
   if (!cartVisible) {
@@ -25,7 +30,8 @@ const CartTabel = ({
           <CartItem
             item={item}
             onAdd={productAddedToCart}
-            onRemove={productRemovedFromCart} />
+            onRemove={productRemovedFromCart}
+            onDelete={productDeletedFromCart} />
         </li>
       )
     })
@@ -52,5 +58,9 @@ const mapStateToProps = ({ totalCost, totalItems, order, cartVisible }) => {
 
 export default connect(
   mapStateToProps,
-  { productAddedToCart, productRemovedFromCart }
+  {
+    productAddedToCart,
+    productRemovedFromCart,
+    productDeletedFromCart,
+  }
 )(CartTabel);

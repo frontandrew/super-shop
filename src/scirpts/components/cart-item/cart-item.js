@@ -10,14 +10,12 @@ class CartItem extends Component {
   onInputChange(event) {
     const diff = event.target.value - this.state.input;
 
-    if (event.target.value === 0) {
-      console.log(`deleted ${this.props.item.title}`)
-    } else if (diff > 0) {
+    if (diff > 0) {
       this.props.onAdd(this.props.item, diff)
       this.setState({
         input: event.target.value,
       })
-    } else if (diff < 0) {
+    } else {
       this.props.onRemove(this.props.item, diff)
       this.setState({
         input: event.target.value,
@@ -42,7 +40,7 @@ class CartItem extends Component {
     } */
 
   render() {
-    const { title, quantity } = this.props.item;
+    const { title, quantity, inCart } = this.props.item;
 
     return (
       <Fragment>
@@ -51,10 +49,14 @@ class CartItem extends Component {
           className="cart-item__quantity"
           onChange={(event) => this.onInputChange(event)}
           type="number"
-          min={0}
+          min={1}
           max={quantity}
           value={this.state.input} />
-        <button className="cart-item__delete">X</button>
+        <button
+          className="cart-item__delete" 
+          onClick={() => this.props.onDelete(this.props.item, -inCart)}>
+          X
+        </button>
       </Fragment>
     )
   }
