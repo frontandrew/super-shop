@@ -24,11 +24,11 @@ const productSelected = (productItem) => {
   }
 }
 
-const productAddedToCart = (productItem, addedQuantity) => {
+const productAddedToCart = (productItem, quantity) => {
   return {
     type: 'PRODUCT_ADDED_TO_CART',
     productItem,
-    addedQuantity
+    quantity
   }
 }
 

@@ -30,8 +30,8 @@ const SubmitButton = ({ rest }) => {
 class Product extends Component {
 
   state = {
-    inputValue: 1,
-    rest: 1,
+    inputValue: {},
+    rest: {},
   };
 
   componentDidMount() {
@@ -62,8 +62,8 @@ class Product extends Component {
         }
       })
     } else {
-      const inputValue = order[idx].rest === 0 ? 0 : 1;
-      const minValue = order[idx].rest === 0 ? 0 : 1;
+      const inputValue = order[idx].rest ? 0 : 1;
+      const minValue = order[idx].rest ? 0 : 1;
 
       this.setState(state => {
         return state = {

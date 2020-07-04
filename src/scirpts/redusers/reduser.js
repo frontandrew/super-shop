@@ -8,7 +8,7 @@ const InitialState = {
   activeProduct: undefined,
 }
 
-const updateItem = (cartItem = {}, product, addedQuantity) => {
+const updateItem = (cartItem = {}, product, quantity, idx) => {
   const { 
     id = product.id,
     title = product.title,
@@ -18,50 +18,52 @@ const updateItem = (cartItem = {}, product, addedQuantity) => {
     inCart = 0,
   } = cartItem;
 
+  quantity = quantity * idx;
+
   return {
     id,
     title,
     price,
-    rest: rest - addedQuantity,
-    total: +(total + (price * addedQuantity)).toFixed(2),
-    inCart: inCart + +addedQuantity,
+    rest: rest - quantity,
+    total: +(total + (price * quantity)).toFixed(2),
+    inCart: inCart + +quantity,
   }
 }
 
-const updateOrderItems = (items, item, idx) => {
-  if (idx === -1) {
+const updateOrderItems = (items, item, id) => {
+  if (id === -1) {
     return [
       ...items,
       item
     ]
   }
 
-  if (item.count === 0) {
+  if (item.inCart === 0) {
     return [
-      ...items.slice(0, idx),
-      ...items.slice(idx + 1),
+      ...items.slice(0, id),
+      ...items.slice(id + 1),
     ]
   }
 
   return [
-    ...items.slice(0, idx),
+    ...items.slice(0, id),
     item,
-    ...items.slice(idx + 1),
+    ...items.slice(id + 1),
   ]
 }
 
-const updateOrder = (state, action) => {
+const updateOrder = (state, action, idx) => {
   const { order } = state;
-  const { productItem, addedQuantity} = action;
+  const { productItem, quantity} = action;
   
-  const prodIndex = order.findIndex(prod => prod.id === productItem.id);
-  const inCartProduct = order[prodIndex];
+  const inCartIdx = order.findIndex(prod => prod.id === productItem.id);
+  const inCartProduct = order[inCartIdx];
 
-  const newCartItem = updateItem(inCartProduct, productItem, addedQuantity);
+  const newCartItem = updateItem(inCartProduct, productItem, quantity, idx);
 
   return state = {
     ...state,
-    order: updateOrderItems(order, newCartItem, prodIndex),
+    order: updateOrderItems(order, newCartItem, inCartIdx),
   };
 }
 
@@ -104,7 +106,7 @@ const reduser = (state = InitialState, action) => {
       }
 
     case 'PRODUCT_ADDED_TO_CART':
-      return updateOrder(state, action);
+      return updateOrder(state, action, 1);
 
     default:
       return state
