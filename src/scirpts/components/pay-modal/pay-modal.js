@@ -3,6 +3,8 @@ import { connect } from 'react-redux';
 
 import './pay-modal.css';
 
+import Preloader from '../preloader/preloader.js';
+
 class PayModal extends Component {
 
   render() {
@@ -18,8 +20,7 @@ class PayModal extends Component {
               <span className="pay-modal__title">Процесс оплаты</span>
               <button className="pay-modal__close">X</button>
             </div>
-            {/*         <Preloader />
-        <FinalOrder /> */}
+            <Preloader />
           </div>
         </div>
       )
@@ -27,9 +28,10 @@ class PayModal extends Component {
   }
 }
 
-const mapStateToProps = ({ payment }) => {
+const mapStateToProps = ({ payment, order }) => {
   return {
-    payment
+    payment,
+    order
   }
 }
 

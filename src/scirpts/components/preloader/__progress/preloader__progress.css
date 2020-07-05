@@ -1,0 +1,15 @@
+.preloader__progress {
+  height: 20px;
+  width: 75%;
+
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+
+  position: relative;
+  padding: 2px;
+  
+  background: rgba(200,200,200);
+  border: 1px solid black;
+  border-radius: 6px;
+}

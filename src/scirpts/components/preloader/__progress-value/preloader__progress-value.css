@@ -1,0 +1,15 @@
+.preloader__progress-value {
+  width: 0;
+  height: 99%;
+
+  box-shadow: 0 10px 40px -10px #fff;
+  border-radius: 5px;
+  background: royalblue;
+  
+  animation: load 4s normal forwards linear;
+}
+
+@keyframes load {
+  0% { width: 0; }
+  100% { width: 100%; }
+}
