@@ -2,7 +2,8 @@ import React from 'react';
 
 import './preloader.css';
 
-const Preloader = ({ payment }) => {
+const Preloader = () => {
+  
   return (
     <div className="preloader">
       <div className="preloader__progress">

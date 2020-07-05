@@ -20,7 +20,7 @@ class PayModal extends Component {
               <span className="pay-modal__title">Процесс оплаты</span>
               <button className="pay-modal__close">X</button>
             </div>
-            <Preloader />
+            <Preloader payment={payment} />
           </div>
         </div>
       )

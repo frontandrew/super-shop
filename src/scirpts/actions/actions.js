@@ -48,6 +48,18 @@ const productDeletedFromCart = (productItem, diff) => {
   }
 }
 
+const startPayment = () => {
+  return {
+    type: 'START_PAYMENT'
+  }
+}
+
+const donePayment = () => {
+  return {
+    type: 'DONE_PAYMENT'
+  }
+}
+
 export {
   toMainPage,
   cartToggle,
@@ -56,4 +68,6 @@ export {
   productAddedToCart,
   productRemovedFromCart,
   productDeletedFromCart,
+  startPayment,
+  donePayment,
 }

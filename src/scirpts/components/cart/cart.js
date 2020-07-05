@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 
 import './cart.css';
 
-import{cartToggle}from '../../actions/actions.js';
+import { cartToggle } from '../../actions/actions.js';
 import CartTabel from '../cart-tabel/cart-tabel.js';
 
 const Cart = ({ totalCost, totalItems, cartToggle }) => {

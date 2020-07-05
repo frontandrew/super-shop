@@ -4,7 +4,7 @@ const InitialState = {
   totalCost: 0,
   totalItems: 0,
   view: 'categories',
-  payment: 'done',
+  payment: false,
   activeCategory: undefined,
   activeProduct: undefined,
 }
@@ -130,8 +130,21 @@ const reduser = (state = InitialState, action) => {
     case 'PRODUCT_DELETED_FROM_CART':
       return updateOrder(state, action);
 
+    case 'START_PAYMENT':
+      return {
+        ...state,
+        cartVisible: false,
+        payment: 'progress',
+      }
+
+    case 'DONE_PAYMENT':
+      return {
+        ...state,
+        payment: 'done',
+      }
+
     default:
-      return state
+      return state;
   }
 }
 

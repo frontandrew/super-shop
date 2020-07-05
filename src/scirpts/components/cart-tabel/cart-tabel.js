@@ -7,6 +7,7 @@ import {
   productAddedToCart,
   productRemovedFromCart,
   productDeletedFromCart,
+  startPayment,
 } from '../../actions/actions.js';
 import CartItem from '../cart-item/cart-item.js';
 
@@ -18,6 +19,7 @@ const CartTabel = ({
   productAddedToCart,
   productRemovedFromCart,
   productDeletedFromCart,
+  startPayment,
 }) => {
 
   if (!cartVisible) {
@@ -45,7 +47,11 @@ const CartTabel = ({
             <span className="cart-tabel__totals">{totalItems}&nbsp;шт.</span>
             <span className="cart-tabel__totals">{totalCost}&nbsp;$</span>
           </div>
-          <button className="cart-tabel__payment">Оплатить</button>
+          <button
+            className="cart-tabel__payment"
+            onClick={() => startPayment()} >
+            Оплатить
+          </button>
         </div>
       </div>
     );
@@ -62,5 +68,6 @@ export default connect(
     productAddedToCart,
     productRemovedFromCart,
     productDeletedFromCart,
+    startPayment,
   }
 )(CartTabel);
