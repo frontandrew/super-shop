@@ -1,0 +1,13 @@
+@import url(./__title/order-list-item__title.css);
+@import url(./__quantity/order-list-item__quantity.css);
+@import url(./__cost/order-list-item__cost.css);
+
+.order-list-item {  
+  display: grid;
+  grid-template-columns: auto 60px 130px;
+  grid-gap: 20px;
+
+  padding: 10px 0;
+  
+  border-bottom: 1px solid lightgrey;
+}

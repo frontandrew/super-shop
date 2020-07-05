@@ -3,12 +3,26 @@ import { connect } from 'react-redux';
 
 import './pay-modal.css';
 
+import { donePayment } from '../../actions/actions.js';
+
+import OrderList from '../order-list/order-list.js';
 import Preloader from '../preloader/preloader.js';
 
 class PayModal extends Component {
 
+  componentDidUpdate(prevProps) {
+    const { payment, donePayment } = this.props;
+
+    if (!prevProps.payment && payment === 'progress') {
+      let loading = setTimeout(donePayment, 4100);
+    }
+  }
+
   render() {
     const { payment } = this.props;
+
+    const order = payment === 'done' ? <OrderList /> : null;
+    const preloader = payment === 'progress' ? <Preloader /> : null;
 
     if (!payment) {
       return null
@@ -20,7 +34,8 @@ class PayModal extends Component {
               <span className="pay-modal__title">Процесс оплаты</span>
               <button className="pay-modal__close">X</button>
             </div>
-            <Preloader payment={payment} />
+            {order}
+            {preloader}
           </div>
         </div>
       )
@@ -35,4 +50,4 @@ const mapStateToProps = ({ payment, order }) => {
   }
 }
 
-export default connect(mapStateToProps)(PayModal);
+export default connect(mapStateToProps, { donePayment })(PayModal);
