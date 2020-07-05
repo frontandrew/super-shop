@@ -143,6 +143,9 @@ const reduser = (state = InitialState, action) => {
         payment: 'done',
       }
 
+    case 'CLOSE_ORDER_LIST':
+      return InitialState;
+
     default:
       return state;
   }

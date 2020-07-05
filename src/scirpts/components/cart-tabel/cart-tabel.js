@@ -11,6 +11,24 @@ import {
 } from '../../actions/actions.js';
 import CartItem from '../cart-item/cart-item.js';
 
+const PayButton = ({ order, pay }) => {
+  if (order.length) {
+    return (<button
+      className="cart-tabel__payment"
+      onClick={() => pay()} >
+      Оплатить
+    </button>
+    )
+  } else {
+    return (<button
+      className="cart-tabel__payment"
+      disabled>
+      Нет товаров
+    </button>
+    )
+  }
+}
+
 const CartTabel = ({
   totalCost,
   totalItems,
@@ -47,11 +65,7 @@ const CartTabel = ({
             <span className="cart-tabel__totals">{totalItems}&nbsp;шт.</span>
             <span className="cart-tabel__totals">{totalCost}&nbsp;$</span>
           </div>
-          <button
-            className="cart-tabel__payment"
-            onClick={() => startPayment()} >
-            Оплатить
-          </button>
+          <PayButton order={order} pay={startPayment} />
         </div>
       </div>
     );

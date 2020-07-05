@@ -60,6 +60,12 @@ const donePayment = () => {
   }
 }
 
+const closeOrderList = () => {
+  return {
+    type: 'CLOSE_ORDER_LIST'
+  }
+}
+
 export {
   toMainPage,
   cartToggle,
@@ -70,4 +76,5 @@ export {
   productDeletedFromCart,
   startPayment,
   donePayment,
+  closeOrderList,
 }

@@ -8,8 +8,8 @@ const OrderListItem = ({ item }) => {
   return (
     <Fragment>
       <span className="order-list-item__title">{title}</span>
-      <span className="order-list-item__quantity">{inCart}</span>
-      <span className="order-list-item__cost">{total}</span>
+      <span className="order-list-item__quantity">{inCart} шт.</span>
+      <span className="order-list-item__cost">{total} $</span>
     </Fragment>
   )
 }
