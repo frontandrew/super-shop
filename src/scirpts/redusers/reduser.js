@@ -4,6 +4,7 @@ const InitialState = {
   totalCost: 0,
   totalItems: 0,
   view: 'categories',
+  payment: 'done',
   activeCategory: undefined,
   activeProduct: undefined,
 }
