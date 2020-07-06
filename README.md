@@ -41,13 +41,27 @@ __Super Shop__ is online shop project. Please, [try it](https://frontandrew.gith
 ### What's new:
 
 <details>
+    <summary>v0.0.2 Core Functional</summary>
+    <li>Implemented the main functionality of the app</li>
+</details>
+
+<details>
     <summary>v0.0.1 Project Start</summary>
     <li>Infrastructure setup</li>
 </details>
 
+### What's next:
+
+- Routing with React Router
+- Optimization for better responsivity
+- Boundry to cathing errors
+- Imitation reqests to API
+- CSS minify for build bundle
+- Bug fixes
+
 ### Issues:
 
-- not found
+- clean cart successful payment
 
 ### This project was made possible by:
 

@@ -57,7 +57,7 @@ const updateTotals = (order) => {
   let newTotalCost = 0, newTotalItems = 0;
 
   order.forEach(item => {
-    newTotalCost = newTotalCost + item.total;
+    newTotalCost = +(newTotalCost + item.total).toFixed(2);
     newTotalItems = newTotalItems + item.inCart;
   })
 
