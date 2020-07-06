@@ -1,0 +1,7 @@
+@import url(./__list/order-list__list.css);
+
+.order-list {
+  display: flex;
+
+  overflow: hidden;
+}

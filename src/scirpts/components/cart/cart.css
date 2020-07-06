@@ -1,0 +1,7 @@
+@import url(./__title/cart__title.css);
+@import url(./__toggle/cart__toggle.css);
+@import url(./__totals/cart__totals.css);
+
+.cart {
+  position: relative;
+}

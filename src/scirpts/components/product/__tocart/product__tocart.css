@@ -1,0 +1,11 @@
+.product__tocart {
+  min-width: 100px;
+  max-width: 150px;
+  width: 100%;
+
+  padding: 8px 0;
+  
+  font-size: 16px;
+  background-color: royalblue;
+  color: white;
+}

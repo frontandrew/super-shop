@@ -1,0 +1,17 @@
+.link {
+    
+  color: inherit;
+
+  text-decoration: none;
+  opacity: 1;
+
+  cursor: pointer;
+}
+
+.link:visited {
+  color: inherit;
+}
+
+.link:hover {
+  opacity: .6;
+}

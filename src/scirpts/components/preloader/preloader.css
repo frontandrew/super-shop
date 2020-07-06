@@ -1,0 +1,10 @@
+@import url(./__progress/preloader__progress.css);
+@import url(./__progress-value/preloader__progress-value.css);
+
+.preloader {
+  justify-content: center;
+  align-items: center;
+
+  display: flex;
+  height: 100vh;
+}

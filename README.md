@@ -1,5 +1,5 @@
 # Super Shop
-## 0.0.1
+## 0.0.2
 ---
   
 ### About:
@@ -8,7 +8,7 @@ Hi and wellcome!
 
 <div align="center">
 
-[![super-shop screenshot](https:// "github.io/super-shop")](https://frontandrew.github.io/super-shop/)
+[![super-shop screenshot](https://avatars.mds.yandex.net/get-pdb/2754760/d505e9f3-ff47-4a19-842e-d89ab52dfae9/s1200 "github.io/super-shop")](https://frontandrew.github.io/super-shop/)
   
 </div>
 
@@ -41,13 +41,27 @@ __Super Shop__ is online shop project. Please, [try it](https://frontandrew.gith
 ### What's new:
 
 <details>
+    <summary>v0.0.2 Core Functional</summary>
+    <li>Implemented the main functionality of the app</li>
+</details>
+
+<details>
     <summary>v0.0.1 Project Start</summary>
     <li>Infrastructure setup</li>
 </details>
 
+### What's next:
+
+- Routing with React Router
+- Optimization for better responsivity
+- Boundry to cathing errors
+- Imitation reqests to API
+- CSS minify for build bundle
+- Bug fixes
+
 ### Issues:
 
-- not found
+- clean cart successful payment
 
 ### This project was made possible by:
 
